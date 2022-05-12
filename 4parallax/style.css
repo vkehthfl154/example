@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+body{
+	margin: 0;
+	padding: 0;
+	background: #0c0b4c;
+}
+
+
+.container {
+	width: 1000px;
+	height: 1000px;
+	background: url(img/Untitled-16.png);
+	margin: 100px auto;
+    overflow: hidden;
+}
+
+.container .img10 img{
+    transform: scale(1.1);
+}
+.container .img12 img{
+    transform: scale(1.1);
+}
+.container .img8 img{
+    transform: scale(1.1);
+}
+.container .img9 img{
+    transform: scale(1.1);
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<!-- https://matthew.wagerfield.com/parallax/ -->
+	<div class="container">
+		<div id="scene">
+			<div data-depth="0.3" class="img12">
+				<img src="img/Untitled-12.png" alt="">
+			</div>
+			<div data-depth="-0.1" class="img10">
+				<img src="img/Untitled-10.png" alt="">
+			</div>
+			<div data-depth="0.1" class="img9">
+				<img src="img/Untitled-9.png" alt="">
+			</div>
+			<div data-depth="-0.2" class="img8">
+				<img src="img/Untitled-8.png" alt="">
+			</div>
+			<div data-depth="-0.3">
+				<img src="img/Untitled-15.png" alt="">
+			</div>
+			<div data-depth="0.3">
+				<img src="img/Untitled-14.png" alt="">
+			</div>
+			<div data-depth="0.4">
+				<img src="img/Untitled-5.png" alt="">
+			</div>
+			<div data-depth="-0.4">
+				<img src="img/Untitled-13.png" alt="">
+			</div>
+			<div data-depth="0.5">
+				<img src="img/Untitled-6.png" alt="">
+			</div>
+			<div data-depth="-0.4">
+				<img src="img/Untitled-4.png" alt="">
+			</div>
+			<div data-depth="0.2">
+				<img src="img/Untitled-3.png" alt="">
+			</div>
+			<div data-depth="-0.1">
+				<img src="img/Untitled-2.png" alt="">
+			</div>
+			<div data-depth="0.2">
+				<img src="img/Untitled-1.png" alt="">
+			</div>
+			<div data-depth="-0.1">
+				<img src="img/FLO WER.png" alt="">
+			</div>
+		</div>
+	</div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+
+	<script>
+		var scene = document.getElementById('scene');
+		var parallaxInstance = new Parallax(scene);
+	</script>
+
+</body>
+
+</html>
