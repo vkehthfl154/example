@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Moonlight</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<section>
+		<img src="img/bg.jpg" alt="bg" id="bg">
+		<img src="img/moon.png" alt="bg" id="moon">
+		<img src="img/mountain.png" alt="bg" id="mountain">
+		<img src="img/road.png" alt="bg" id="road">
+		<h2 id="text">MOON LIGHT</h2>
+	</section>
+	<section class="content">
+		<h3>Parallax Background Scrolling</h3>
+		<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores assumenda possimus odit. Modi culpa nulla quam tempore eligendi suscipit deleniti praesentium quidem quae, soluta possimus porro assumenda earum, quaerat, amet quis reiciendis commodi sit libero rem illum perspiciatis debitis eius. Autem, odio nisi! Est, non expedita animi neque voluptatibus saepe minus quibusdam qui quas repellat reprehenderit asperiores? Dolor sunt ea qui quisquam assumenda nisi, totam eos cumque facere omnis consequatur voluptas, nam, voluptates natus. Esse illo, tempore, deleniti consequatur, quibusdam quaerat quidem excepturi consequuntur reprehenderit voluptate labore. Laudantium perferendis, saepe recusandae fuga animi perspiciatis dolore cum maxime exercitationem vel, pariatur aut eligendi accusantium totam. Dolorum eius praesentium amet sequi ea aliquid nobis sit, nemo cum fuga! Officia id modi exercitationem sint dolorem, temporibus repellat mollitia quo doloribus ducimus sunt ex, accusantium rem labore deleniti. Consequuntur itaque placeat officiis architecto dignissimos. Ipsam quam suscipit reiciendis sit natus cum beatae, doloribus iure eveniet corrupti tempora iste repellendus labore? Non nobis facere possimus corporis laudantium, totam facilis maiores distinctio, cumque porro consequatur? Inventore quaerat fugiat doloribus, sint vero aliquam tempore autem exercitationem necessitatibus earum sunt perspiciatis officia, saepe nam soluta aliquid? Dolor nulla ab laboriosam accusamus soluta dolore, labore repellendus dolorem ad assumenda?</p>
+	</section>
+
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+		var $window = $(window);
+		var bg = $('#bg');
+		var moon = $('#moon');
+		var mountain = $('#mountain');
+		var road = $('#road');
+		var text = $('#text');
+
+    //window.scroll(); window의 scroll을 움직일 때마다 어떤 일이 발생
+		$window.scroll(function(){
+			var value = $(this).scrollTop();
+			// $(this) = window
+			console.log(value);
+
+            bg.css({top:value * 0.2 + "px"})
+			moon.css({left:-value * 0.5 + "px", top:value * 0.4 + "px", opacity: 1 - (value * 0.002)})
+            mountain.css({top:-value * 0.15 + "px"})
+            road.css({top:value * 0.15 + "px"})
+            text.css({top:value + "px"})
+		});
+	</script>
+
+</body>
+
+</html>
