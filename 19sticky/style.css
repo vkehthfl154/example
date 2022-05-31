@@ -1,0 +1,26 @@
+@charset "UTF-8";
+*{margin: 0; padding: 0;}
+.clearfix::after{content: ""; display: block; clear: both;}
+
+#header{background: #354259; height: 200px;}
+#banner{background: #CDC2AE; height: 200px;}
+#sticky{background: #ECE5C7;}
+#sticky .left{float: left; background: #C2DED1; width: 50%;}
+#sticky .left .l1{background: #E9D5CA; height: 50vh;}
+#sticky .left .l2{background: #827397; height: 50vh;}
+#sticky .left .l3{background: #363062; height: 50vh;}
+#sticky .left .l4{background: #F47C7C; height: 50vh;}
+#sticky .right{
+	float: right; background: #F47C7C; width: 50%; height: 200vh;
+}
+#sticky .right .r{position: sticky; background: #EC9B3B; height: 50vh; top: 0;}
+#sticky .right .r div{height: 100%; overflow: hidden;}
+#sticky .right .r div img{width: 100%;}
+#footer{background: #F7D716; height: 100vh;}
+
+/* sticky 요구사항
+부모들(상위요소) 중 overflow:hidden이 있으면 안됨.
+하위요소에는 overflow:hidden 사용 가능
+position:sticky가 있는 요소의 부모요소는 높이값을 적어줘야 한다. 
+position:sticky가 있는 요소에게 top값을 적어줘야 한다.(left, right 적용 안됨)
+부모의 공간만큼 고정된다. */
