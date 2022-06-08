@@ -1,6 +1,7 @@
 @charset "UFT-8";
 *{margin: 0; padding: 0;}
 li,ul{list-style: none;}
+img{display: block;}
 a{text-decoration: none; color: #222;}
 
 .sj_panorama{
@@ -15,9 +16,9 @@ a{text-decoration: none; color: #222;}
 
 .sj_panorama .pano_wrap{
 	/* inline요소가 가진 빈 공간 제거 */
-	font-size: 0;
+	font-size: 0; white-space: nowrap;
 }
-.sj_panorama .pano_wrap .list{
+.sj_panorama .pano_wrap .list{ display: inline-block;
 	white-space: nowrap;
 }
 .sj_panorama .pano_wrap .list li{
@@ -26,3 +27,13 @@ a{text-decoration: none; color: #222;}
 }
 .sj_panorama .pano_wrap .list li figure{}
 .sj_panorama .pano_wrap .list li figure img{}
+
+.sj_panorama .controls{position: absolute; right: 20px; top: 20px;
+}
+.sj_panorama .controls a{font-size: 40px;}
+.sj_panorama .controls i{position: absolute; right: 0; top: 0; color: #fff;}
+.sj_panorama .controls  i em{text-indent: -9999em; font-size: 0; line-height: 0;}
+.sj_panorama .controls  a.active .play{opacity: 0; visibility: hidden;}
+.sj_panorama .controls  a .play{opacity: 1; visibility: visible;}
+.sj_panorama .controls  a.active .pause{opacity: 1; visibility: visible;}
+.sj_panorama .controls  a .pause{opacity: 0; visibility: hidden;}

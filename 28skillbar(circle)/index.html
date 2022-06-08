@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="top" style="height: 100vh; background:#ccc"></div>
+
+	<div class="easypieChart">
+		<div class="container">
+			<div class="box">
+				<div class="chart" data-percent="95"></div>
+				<h2>HTML</h2>
+				<h3 data-rate="95"></h3>
+			</div><!-- //box -->
+			<div class="box">
+				<div class="chart" data-percent="90"></div>
+				<h2>CSS</h2>
+				<h3 data-rate="90"></h3>
+			</div><!-- //box -->
+			<div class="box">
+				<div class="chart" data-percent="97"></div>
+				<h2>PHOTOSHOP/<br>illustrate</h2>
+				<h3 data-rate="97"></h3>
+			</div><!-- //box -->
+			<div class="box">
+				<div class="chart" data-percent="70"></div>
+				<h2>javaScript</h2>
+				<h3 data-rate="70"></h3>
+			</div><!-- //box -->
+		</div>
+	</div>
+
+	<div class="bottom" style="height: 100vh; background:#ccc"></div>
+
+
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
+
+	<script>
+		var cunterData = $('.box h3');
+		var executed = false; //변수 안의 값을 바꿔서 한번만 실행되게 한다
+
+		$(window).scroll(function () {
+			var $scroll = $(this).scrollTop(); //scrollTop값
+			var $offset = $('.easypieChart').offset().top - 600; //easypieChart영역이 뷰포트의 top에 위치하는 지점
+
+			if ($scroll > $offset){
+
+				pieChart();
+
+				if (!executed){
+					cunterData.each(function(){
+						var current = $(this); //각각의 h3이 할 일
+						var target = current.data('rate'); //data-rate="70"//70을 가져온다
+						$({
+							rate: 0
+						}).animate({
+							rate: target
+						}, {
+							duration: 2500,
+							progress: function () {
+								var now = this.rate; //this는 animate 
+								//console.log(now)
+								current.text(Math.floor(now) + "%")
+							}
+						})
+					});
+
+					executed = true;
+				} //if문
+			} //if문
+		});
+
+
+
+
+		function pieChart(){
+			$('.chart').easyPieChart({
+				barColor: "#17d3e6",
+				scaleColor: false,
+				trackColor: "#373737",
+				lineWidth: 10,
+				animate: 2000,
+				lineCap: "butt"
+			});
+		}
+	</script>
+</body>
+
+</html>
