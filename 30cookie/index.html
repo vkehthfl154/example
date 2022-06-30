@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.notice {
+			position: fixed;
+			padding: 20px;
+			border: 1px solid #ccc;
+			left: 100px;top: 100px;
+			height: 300px;width: 200px;
+		}
+
+		.notice .hide {
+			position: absolute;
+			left: 0;bottom: 0;
+			width: 100%;
+			text-align: center;
+		}
+		.notice .close{
+			position: absolute;
+			right: 0; top: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="notice">
+		notice
+		<a href="#" class="hide">
+			<input type="checkbox" id="check">
+			<label for="check">7일간 보이지 않기</label>
+		</a>
+		<a href="#" class="close">닫기</a>
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+		//오늘날짜를 불러오기
+		var date = new Date();
+        // console.log(date);
+        // console.log(date.getDate());
+        // console.log(date.getMonth() + 1);//0~11까지 월을 표현함
+
+        //날짜를 셋팅
+        // date.setDate(date.getDate() + 7);
+        // console.log(date);
+
+        //쿠키는 시간의 형식이 UTF포맷(협정세계시)
+        console.log("협정세계시" + date.toUTCString());
+
+        // var setCookie = '';
+        // setCookie = 'CookieName = green;';
+        // setCookie += 'expires = ' + date.toUTCString();
+        //a += b  ==> a = a+b;
+        
+
+        var currentCookie = document.cookie;
+        var cookieCheck = currentCookie.indexOf('green');
+        console.log(cookieCheck)
+
+        if(cookieCheck>-1){
+            $('.notice').hide();
+        }else{
+            $('.notice').show();
+        }
+
+
+
+        
+        $('.hide').click(function(){
+            var date = new Date();
+            date.setDate(date.getDate() + 7)
+            console.log(date);
+
+            var setCookie = '';
+            setCookie = 'CookieName = green;';
+            setCookie += 'expires = ' + date.toUTCString();
+
+            document.cookie = setCookie;
+        });
+
+        $('.close').click(function(){
+            $('.notice').hide();
+        });
+	</script>
+</body>
+
+</html>

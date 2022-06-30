@@ -1,0 +1,14 @@
+.ie{
+	display: none; position: fixed;
+	left: 0; right: 0; top: 0; bottom: 0;
+	text-align: center; box-sizing: border-box;
+	padding: 20vw 10vw; z-index: 1000;
+	background: rgb(35, 132, 0);
+}
+.no-cssreflections .ie{display: block;}
+
+.wrap{}
+.wrap h2{
+	text-align: center; font-size: 40px;
+	padding-top: 20vw;
+}

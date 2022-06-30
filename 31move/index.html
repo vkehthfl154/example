@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top" style="height: 100vh; background: #00ffcc;"></div>
+
+    <div class="main"><img src="img/layer-7.png" class="human" alt="human">
+        <div class="textWrap">
+            <img src="img/masthead-logo.svg" class="text3d" alt="제목">
+        </div>  
+        <img src="img/layer-1.jpg" class="bg" alt="벽">
+        <img src="img/layer-9.png" class="pipe" alt="파이프">
+    </div>
+
+    <div class="bottom" style="height: 100vh; bottomackground: #00ffcc;"></div>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+        var human = $('.human')
+        var bg = $('.bg')
+        var text3d = $('.text3d')
+        var pipe = $('.pipe')
+        var main = $('.main')
+
+        var x = 0;
+    var y = 0;
+    var mx = 0;
+    var my = 0;
+    var speed = 0.01;
+
+    // main.mousemove(function(){
+    //   mouseFunc();
+    // });
+      // 위와 같음
+    main.mousemove(mouseFunc);
+
+
+    function mouseFunc(e){
+      // console.log("화면의 넓이 : " + $(window).width());
+      // console.log("화면의 높이 : " + $(window).height());
+
+      x = e.clientX - $(window).width() / 2;
+      y = e.clientY - $(window).height() / 2;
+      // console.log(y);
+      loop();
+    }
+
+    function loop(){
+      mx += (x - mx) * speed; //mx = mx + (x - mx) * speed
+      console.log(x + "," + mx);
+      my += (y - my) * speed;
+      human.css({
+        transform:'translate(' + -(mx / 9) + 'px,' + -(my / 9) + 'px)'
+      })
+      bg.css({
+        transform:'translate(' + (mx / 8) + 'px,' + (my / 8) + 'px)'
+      })
+      pipe.css({
+          transform:'translate(' + (mx / 4) + 'px,' + (my / 3) + 'px)'
+      })
+      text3d.css({
+          transform: 'translate3d(' + (mx / 2) + 'px,' + (my / 2) + 'px, 0px) rotate3d(0, 1, 0,' + (mx / 15) + 'deg)'
+      })
+    }
+
+    </script>
+</body>
+</html>
